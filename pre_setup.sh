@@ -1,7 +1,10 @@
 #!/bin/bash
 
-sudo apt-get update
-sudo apt-get install -y ia32-libs
+# ia32-libs are already installed on Solano workers.
+if [ -n $TDDIUM ]; then
+  sudo apt-get update
+  sudo apt-get install -y ia32-libs
+fi
 
 ./install.sh
 
